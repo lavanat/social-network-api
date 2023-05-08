@@ -11,6 +11,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
+        // pulled this regex expression from my week 17 assigment
         match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
     },
     thoughts: [
