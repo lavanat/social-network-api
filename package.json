@@ -1,0 +1,24 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "api for a social network application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lavanat/social-network-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lavanat/social-network-api/issues"
+  },
+  "homepage": "https://github.com/lavanat/social-network-api#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0"
+  }
+}
