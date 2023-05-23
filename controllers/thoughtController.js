@@ -21,17 +21,17 @@ module.exports = {
     //   Create a thought and push to the user's thoughts array
     createThought(req, res) {
         Thought.create(req.body)
-            .then(({ _id }) => {
+            .then((thoughtData) => {
                 return User.findOneAndUpdate(
-                    { _id: req.body.userId },
-                    { $push: { thoughts: _id } },
+                    { username: thoughtData.username },
+                    { $push: { thoughts: thoughtData._id } },
                     { new: true }
                 );
             })
-            .then((thought) =>
-                !thought
-                    ? res.status(404).json({ message: "No thought with this ID!" })
-                    : res.json(thought)
+            .then((userData) =>
+                !userData
+                    ? res.status(404).json({ message: "Message created but no user with this ID!" })
+                    : res.json(userData)
             )
             .catch((err) => res.status(500).json(err));
     },
@@ -61,11 +61,11 @@ module.exports = {
                         { new: true }
                     )
             )
-            .then((user) =>
+            .then((user) =>{
                 !user
                     ? res.status(404).json({ message: 'Thought deleted, but no associated user found' })
                     : res.json({ message: 'Thought deleted' })
-            )
+    })
             .catch((err) => res.status(500).json(err));
     },
     // create a reaction
